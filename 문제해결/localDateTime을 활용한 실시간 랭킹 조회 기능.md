@@ -59,6 +59,7 @@ List<Object[]> findTop3ByMostLiked(@Param("startDate") LocalDateTime startDate,
 그래서 아래와 같이 함수로 따로 빼니깐 잘 작동하였다
 
 ```java
+// 좋아요를 제일 많이 받은 유저 TOP3
 public List<GetThisWeekRankingResponseDto> getTop3ByMostLiked() {
 
     List<Object[]> top3ByMostLiked = userRepository.findTop3ByMostLiked(getTime().get(0), getTime().get(1));
