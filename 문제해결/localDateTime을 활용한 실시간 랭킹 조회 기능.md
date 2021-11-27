@@ -61,12 +61,12 @@ List<Object[]> findTop3ByMostLiked(@Param("startDate") LocalDateTime startDate,
 ```java
 public List<GetThisWeekRankingResponseDto> getTop3ByMostLiked() {
 
-List<Object[]> top3ByMostLiked = userRepository.findTop3ByMostLiked(getTime().get(0), getTime().get(1));
+    List<Object[]> top3ByMostLiked = userRepository.findTop3ByMostLiked(getTime().get(0), getTime().get(1));
 
-return top3ByMostLiked.stream().map(like -> new GetThisWeekRankingResponseDto(
-	(String) like[0],
-	(String) like[1],
-    	((BigInteger) like[2]).longValue()
+    return top3ByMostLiked.stream().map(like -> new GetThisWeekRankingResponseDto(
+        (String) like[0],
+        (String) like[1],
+        ((BigInteger) like[2]).longValue()
     )).collect(Collectors.toList());
 }
 
